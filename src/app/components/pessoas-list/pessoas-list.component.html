@@ -1,0 +1,35 @@
+<div id="container-fluid">
+    <div class="row">
+        <div class="col-7">
+            <table class="table table-striped display">
+                <thead>
+                    <tr>
+                        <th>Cod</th>
+                        <th [ChangeCase]="'lower'">Name</th>
+                        <th [ChangeCase]="'upper'">Pais</th>
+                        <th [ChangeCase]="'keep'">Age</th>
+                        <th>PhotoName</th>
+                        <th>AnimalsCount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pessoa of pessoasList">
+                        <td>{{pessoa.Cod}}</td>
+                        <td>{{pessoa.Name}}</td>
+                        <td>{{pessoa.Pais | appendtext: 'Sufixo'}}</td>
+                        <td>{{pessoa.Age}}</td>
+                        <td>{{pessoa.PhotoName}}</td>
+                        <td>{{pessoa.AnimalsCount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<hr>
+<input id="deleteCod" type="text">
+<button (click)="deletePessoa()">Delete</button>
+<pre>
+{{pipeObs | async|  json}}
+</pre>
+<button (click)="throwError()">Throw Error</button>
